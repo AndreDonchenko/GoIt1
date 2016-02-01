@@ -2,69 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9fe2ecc7-d008-4fc4-9db7-6bf6e924e0f0" name="Default" comment="Test Cases for lab 4,5,9">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/andre/lab2/File.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/andre/lab2/Flower.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/andre/lab2/Music.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/anagram.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/andre/lab10/FileEncoder.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/andre/lab3/file/AudioFile.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/andre/lab3/file/Directory.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/andre/lab3/file/File.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/andre/lab3/file/ImageFile.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/andre/lab3/file/TextFile.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/andre/lab3/flower/Aster.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/andre/lab3/flower/Bouquet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/andre/lab3/flower/Chamomile.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/andre/lab3/flower/Flower.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/andre/lab3/flower/Rose.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/andre/lab3/flower/RoseBouquet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/andre/lab3/flower/Tulip.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/andre/lab3/music/Guitar.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/andre/lab3/music/MusicInstrument.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/andre/lab3/music/MusicShop.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/andre/lab3/music/Piano.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/andre/lab3/music/Trumpet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/andre/lab4/DotLength.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/andre/lab4/Square.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/andre/lab4/TempConvert.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/andre/lab4extra/AbstractFunc.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/andre/lab4extra/ExampleFunc.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/andre/lab4extra/MonteCarlo.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/andre/lab4extra/MonteCarloRun.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/andre/lab4extra/PiFunc.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/andre/lab5/ArraysToolsRunner.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/andre/lab5/IntArraysTools.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/andre/lab5extra/Matrix.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/andre/lab5extra/MatrixRunner.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/andre/lab6/AudioFile.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/andre/lab6/Directory.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/andre/lab6/DirectoryItem.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/andre/lab6/DirectoryNotEmptyException.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/andre/lab6/DirectoryRunner.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/andre/lab6/File.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/andre/lab6/FileAlreadyExistException.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/andre/lab6/ImageFile.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/andre/lab6/TextFile.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/andre/lab8/ObjectsList.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/andre/lab8/Runner.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/andre/lab9/Caesar.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/andre/lab9/Runner.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/group17/coreexam/Anagram.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/goit/group17/coreexam/Runner.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/ua/goit/andre/lab4/DotLengthTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/ua/goit/andre/lab4/SquareTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/ua/goit/andre/lab4/TempConvertTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/ua/goit/andre/lab5/IntArraysToolsTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/ua/goit/andre/lab9/CaesarTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/ua/goit/group17/coreexam/AnagramTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="GoIt1.iws" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -240,7 +178,9 @@
     </leaf>
   </component>
   <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="FORCE_PUSH_ALLOWED" value="true" />
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -504,7 +444,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="File.Encoding" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/.idea" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
@@ -932,6 +872,13 @@
       <option name="number" value="Default" />
       <updated>1454351429225</updated>
     </task>
+    <task id="LOCAL-00001" summary="Test Cases for lab 4,5,9">
+      <created>1454357545853</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1454357545853</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
