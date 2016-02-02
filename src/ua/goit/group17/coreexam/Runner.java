@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class Runner {
 	private static final String DEFAULT_ANAGRAM_FILE = "anagram.txt";
 	private static LinkedList<String> words = new LinkedList<>();
-	private static String fileName=DEFAULT_ANAGRAM_FILE;
+	private static String fileName="anagram.txt";
 	
 	
 	private static LinkedList<String> readFile(String fileName) {
@@ -83,6 +83,9 @@ public class Runner {
 							break;
 				case "0": System.out.println("Bye!");
 						  exit=true; 
+						  break;
+				default : System.out.println("Please enter 1,2,3 or 0 for Exit!");
+					      System.out.println();
 						  break;
 			}
 		}
