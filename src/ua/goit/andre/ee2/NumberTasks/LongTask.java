@@ -2,10 +2,8 @@ package ua.goit.andre.ee2.NumberTasks;
 
 import ua.goit.andre.ee2.TaskExecutorInterface.Task;
 
-/**
- * Created by Andre on 17.03.2016.
- */
-public class LongTask implements Task {
+
+public class LongTask implements Task<Long> {
     private long a;
     private Long result;
 
@@ -14,7 +12,7 @@ public class LongTask implements Task {
     }
 
     @Override
-    public Object getValue() {
+    public Long getValue() {
         return a;
     }
 
@@ -24,7 +22,7 @@ public class LongTask implements Task {
     }
 
     @Override
-    public Object getResult() {
+    public Long getResult() {
         return result;
     }
 }

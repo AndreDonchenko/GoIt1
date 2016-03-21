@@ -1,8 +1,6 @@
 package ua.goit.andre.ee2.TaskExecutor;
 
-import ua.goit.andre.ee2.TaskExecutorInterface.Executor;
-import ua.goit.andre.ee2.TaskExecutorInterface.Task;
-import ua.goit.andre.ee2.TaskExecutorInterface.Validator;
+import ua.goit.andre.ee2.TaskExecutorInterface.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,12 +23,14 @@ public class ExecutorImpl<T> implements Executor {
 
     @Override
     public void addTask(Task task) {
+        if (isExecuted) throw new IllegalStateException();
         tasks.add(new TaskValidatorContainer<T>(task, null));
     }
 
     @Override
     public void addTask(Task task, Validator validator) {
-        tasks.add(new TaskValidatorContainer<T>(task, validator));
+        if (isExecuted) throw new IllegalStateException();
+        tasks.add(new TaskValidatorContainer(task, validator));
     }
 
     @Override
@@ -54,22 +54,23 @@ public class ExecutorImpl<T> implements Executor {
         }
     }
 
-    @Override
-    public List<T> getValidResults() throws IllegalStateException {
-        if (isExecuted) {
+    private List<T> getResults(boolean isValid) throws IllegalStateException {
+        if (!isExecuted) throw new IllegalStateException();
+        if (isValid) {
             return validResults;
         } else {
-            throw new IllegalStateException();
+            return invalidResults;
         }
     }
 
     @Override
-    public List<T> getInvalidResults() throws IllegalStateException {
-            if (isExecuted) {
-                return invalidResults;
-            } else {
-                throw new IllegalStateException();
-            }
+    public List<T> getValidResults() {
+        return getResults(true);
+    }
+
+    @Override
+    public List<T> getInvalidResults() {
+        return getResults(false);
     }
 
 }

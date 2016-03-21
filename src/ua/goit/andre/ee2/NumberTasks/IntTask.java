@@ -2,9 +2,7 @@ package ua.goit.andre.ee2.NumberTasks;
 
 import ua.goit.andre.ee2.TaskExecutorInterface.Task;
 
-/**
- * Created by Andre on 17.03.2016.
- */
+
 public class IntTask implements Task {
     private int a;
     private Integer result;

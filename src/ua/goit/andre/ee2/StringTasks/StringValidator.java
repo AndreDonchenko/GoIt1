@@ -1,7 +1,11 @@
 package ua.goit.andre.ee2.StringTasks;
 
-/**
- * Created by Andre on 17.03.2016.
- */
-public class StringValidator {
+import ua.goit.andre.ee2.TaskExecutorInterface.Validator;
+
+public class StringValidator implements Validator <String>{
+
+    @Override
+    public boolean isValid(String result) {
+        return result.contains("-");
+    }
 }
