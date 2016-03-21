@@ -23,7 +23,6 @@ public class SemaphoreImpl implements Semaphore {
         } else {
             this.wait ();
         }
-
     }
 
     @Override
@@ -36,7 +35,9 @@ public class SemaphoreImpl implements Semaphore {
         if (permits < 0) throw new IllegalArgumentException();
         while (permits > 0) {
             threadCounter++;
-            if (threadCounter > 0) this.notify ();
+            if (threadCounter > 0) {
+                this.notify ();
+            }
             permits--;
         }
     }
