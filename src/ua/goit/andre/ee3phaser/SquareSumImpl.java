@@ -10,7 +10,7 @@ public class SquareSumImpl implements SquareSum{
 
     public long getSquareSum(int[] values, int numberOfThreads) {
         final int startOffset = values.length / numberOfThreads;
-        Phaser phaser = new Phaser (5);
+        Phaser phaser = new Phaser (numberOfThreads);
 
         List<Callable<Long>> callables = new ArrayList<> ();
         IntStream.range(0, numberOfThreads).forEach ( i -> callables.add(() -> {
@@ -27,7 +27,7 @@ public class SquareSumImpl implements SquareSum{
             for (int j = startIndex; j < endIndex; j++) {
                 res += Math.pow (values[j], 2);
             }
-            //Thread.sleep ( i*1000 );
+            //Thread.sleep ( i*100 );
             phaser.arriveAndAwaitAdvance ();
             //System.out.println ("Thread: " + i + " result = " + res);
             return res;

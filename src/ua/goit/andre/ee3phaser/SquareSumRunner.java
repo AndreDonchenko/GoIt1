@@ -5,7 +5,7 @@ import java.util.stream.IntStream;
 public class SquareSumRunner {
     public static void main(String[] args) {
         final int numElems = 1000;
-        final int numThreads = 5;
+        final int numThreads = 10;
         int[] arr = new int[numElems];
 
         IntStream.range(0, numElems).forEach ( i -> arr[i] = i + 1 );
