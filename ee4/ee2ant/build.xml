@@ -1,0 +1,47 @@
+<project name = "ee3phaser" basedir = ".">
+
+    <property name = "src" location = "src"/>
+    <property name = "build" location = "build"/>
+    <property name = "dist" location = "dist"/>
+
+    <target name = "init">
+        <mkdir dir = "${build}"/>
+        <mkdir dir = "${dist}"/>
+    </target>
+
+    <target name = "compile" depends = "init">
+        <javac includeantruntime="false" srcdir = "${src}" destdir = "${build}" source = "1.8" target = "1.8"/>
+    </target>
+
+    <target name = "dist" depends="compile">
+        <jar destfile = "${dist}/AntTasks.jar">
+            <fileset dir = "${build}"/>
+            <manifest>
+                <attribute name="Main-Class" value = "ua.goit.andre.ee2.Runner"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="junit" depends="compile">
+        <junit printsummary="yes" haltonfailure="no">
+
+    <!-- Project classpath, must include junit.jar -->
+            <classpath refid="test.path" />
+        
+    <!-- test class -->
+            <classpath location="${test.classes.dir}" />
+        
+            <test name="com.mkyong.test.TestMessage" 
+                haltonfailure="no" todir="${report.dir}">
+                <formatter type="plain" />
+                <formatter type="xml" />
+            </test>
+        </junit>
+    </target>
+
+    <target name = "clean">
+        <delete dir = "${build}"/>
+        <delete dir = "${dist}"/>
+    </target>
+
+</project>
