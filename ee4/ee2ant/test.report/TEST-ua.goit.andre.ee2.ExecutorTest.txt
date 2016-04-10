@@ -1,0 +1,10 @@
+Testsuite: ua.goit.andre.ee2.ExecutorTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0,144 sec
+
+Testcase: testEmptyExecutor took 0,004 sec
+Testcase: testInValidResultsBeforeExecute took 0,002 sec
+Testcase: testAddTaskAfterExecute took 0,002 sec
+Testcase: testAddTaskValidator took 0,007 sec
+Testcase: testAddTaskValidatorAfterExecute took 0 sec
+Testcase: testValidResultsBeforeExecute took 0,001 sec
+Testcase: testAddTask took 0 sec
