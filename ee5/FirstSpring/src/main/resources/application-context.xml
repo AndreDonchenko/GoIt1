@@ -3,6 +3,12 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <bean id="operationProvider" class="ua.goit.andre.ee5.OperationProviderExtender"/>
+    <bean id="executor" class="ua.goit.andre.ee5.OperationExecutor">
+        <constructor-arg ref="operationProvider"/>
+    </bean>
+    <bean id="calculator" class="ua.goit.andre.ee5.ConsoleCalculator">
+        <constructor-arg ref="executor"/>
+    </bean>
     <bean id="bootstrap" class="ua.goit.andre.ee5.Bootstrap"/>
-
 </beans>

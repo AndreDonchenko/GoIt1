@@ -5,9 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ua.goit.andre</groupId>
-    <artifactId>ee5</artifactId>
+    <artifactId>FirstSpring</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
+
 
     <build>
         <plugins>
@@ -18,9 +19,6 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
-            <plugin>
-                <artifactId>maven-jar-plugin</artifactId>
-            </plugin>
         </plugins>
     </build>
     <dependencies>
@@ -28,6 +26,16 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>4.2.5.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>ua.goit.andre</groupId>
+            <artifactId>ee5</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
