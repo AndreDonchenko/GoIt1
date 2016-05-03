@@ -1,4 +1,6 @@
-package ua.goit.andre.ee5;
+package ua.goit.andre.ee5.firstspring;
+
+import ua.goit.andre.ee5.OperationExecutor;
 
 import java.util.Scanner;
 
@@ -14,7 +16,7 @@ public class ConsoleCalculator {
 
     public void execute() {
         Scanner kbdInput=new Scanner(System.in);
-        System.out.print("Please enter operation:");
+        System.out.print("Please enter operation in format 'Operation',Operand1,Operand2'. for Example '+,2,2':");
         String operation = kbdInput.next();
         System.out.println(executor.execute(operation));
     }

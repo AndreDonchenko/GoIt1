@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="logAspect" class="ua.goit.andre.ee5.firstspring.LogAspect"/>
+
+    <aop:config>
+        <aop:pointcut id="library" expression="execution( * ua.goit.andre.ee5.*.*(..))"/>
+        <aop:pointcut id="app" expression="execution( * ua.goit.andre.ee5.*.*.*(..))"/>
+
+        <aop:aspect ref="logAspect">
+            <aop:around pointcut-ref="library" method="onExecute"/>
+            <aop:around pointcut-ref="app" method="onExecute"/>
+        </aop:aspect>
+    </aop:config>
+
+</beans>

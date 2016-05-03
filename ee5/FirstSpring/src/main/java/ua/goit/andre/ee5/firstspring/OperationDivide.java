@@ -1,9 +1,11 @@
-package ua.goit.andre.ee5;
+package ua.goit.andre.ee5.firstspring;
+
+import ua.goit.andre.ee5.Operation;
 
 /**
  * Created by Andre on 24.04.2016.
  */
-public class OperationDivide implements Operation{
+public class OperationDivide implements Operation {
     @Override
     public String getResult(String argsString) {
         String [] operands = argsString.trim().split(",");
