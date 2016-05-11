@@ -6,8 +6,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 class TaskValidatorContainer<T> {
-    public Task<T> task;
-    public Validator<T> validator;
+    private Task<T> task;
+    private Validator<T> validator;
+
+    public Task<T> getTask() {
+        return task;
+    }
+
+    public Validator<T> getValidator() {
+        return validator;
+    }
 
     public TaskValidatorContainer(Task<T> task, Validator<T> validator) {
         this.task = task;
@@ -15,20 +23,22 @@ class TaskValidatorContainer<T> {
     }
 }
 
-public class ExecutorImpl<T> implements Executor {
+public class ExecutorImpl<T> implements Executor<T> {
     private boolean isExecuted = false;
     private List<TaskValidatorContainer<T>> tasks = new ArrayList<>();
     private List<T> validResults;
     private List<T> invalidResults;
 
     @Override
-    public void addTask(Task task) {
-        if (isExecuted) throw new IllegalStateException();
-        tasks.add(new TaskValidatorContainer<T>(task, null));
+    public void addTask(Task <? extends T> task) {
+        if (isExecuted) {
+            throw new IllegalStateException();
+        }
+        tasks.add(new TaskValidatorContainer(task, null));
     }
 
     @Override
-    public void addTask(Task task, Validator validator) {
+    public void addTask(Task <? extends T> task, Validator <? super T>validator) {
         if (isExecuted) throw new IllegalStateException();
         tasks.add(new TaskValidatorContainer(task, validator));
     }
@@ -40,15 +50,15 @@ public class ExecutorImpl<T> implements Executor {
         validResults = new ArrayList<>();
         invalidResults = new ArrayList<>();
         for (TaskValidatorContainer<T> task: tasks) {
-            if (null == task.validator) {
-                task.task.execute();
-                validResults.add(task.task.getResult());
+            if (null == task.getValidator ()) {
+                task.getTask ().execute();
+                validResults.add(task.getTask ().getResult());
             } else {
-                task.task.execute();
-                if (task.validator.isValid(task.task.getValue())) {
-                    validResults.add(task.task.getResult());
+                task.getTask ().execute();
+                if (task.getValidator ().isValid(task.getTask ().getValue())) {
+                    validResults.add(task.getTask ().getResult());
                 } else {
-                    invalidResults.add(task.task.getResult());
+                    invalidResults.add(task.getTask ().getResult());
                 }
             }
         }

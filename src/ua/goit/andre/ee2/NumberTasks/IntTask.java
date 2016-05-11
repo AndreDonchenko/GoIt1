@@ -3,7 +3,7 @@ package ua.goit.andre.ee2.NumberTasks;
 import ua.goit.andre.ee2.TaskExecutorInterface.Task;
 
 
-public class IntTask implements Task {
+public class IntTask implements Task<Integer> {
     private int a;
     private Integer result;
 
@@ -12,7 +12,7 @@ public class IntTask implements Task {
     }
 
     @Override
-    public Object getValue() {
+    public Integer getValue() {
         return a;
     }
 
@@ -22,7 +22,7 @@ public class IntTask implements Task {
     }
 
     @Override
-    public Object getResult() {
+    public Integer getResult() {
         return result;
     }
 }

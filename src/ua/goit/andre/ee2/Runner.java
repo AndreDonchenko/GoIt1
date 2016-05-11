@@ -15,7 +15,7 @@ import java.util.List;
 
 public class Runner {
     public static void test(List<Task<Integer>> intTasks) {
-        Executor<Number> testExecutor = new ExecutorImpl<>();
+        Executor testExecutor = new ExecutorImpl<>();
 
         Validator numValidator = new NumberValidator();
         Validator strValidator = new StringValidator();
