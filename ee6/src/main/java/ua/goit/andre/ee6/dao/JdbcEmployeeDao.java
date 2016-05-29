@@ -1,30 +1,23 @@
 package ua.goit.andre.ee6.dao;
 
-import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import ua.goit.andre.ee6.model.Employee;
 
 import javax.sql.DataSource;
 import java.sql.*;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Andre on 29.05.2016.
  */
-public class JdbcEmployeeDao implements EmployeeDao{
+public class JdbcEmployeeDao extends AbstractDao<Employee, Integer> {
 
-    private DataSource dataSource;
-
-    public void setDataSource(DataSource dataSource) {
-        this.dataSource = dataSource;
-    }
 
     @Override
     @Transactional(propagation = Propagation.MANDATORY)
-    public void addEmployee(Employee employee) {
+    public void add(Employee employee) {
         /*
         INSERT INTO employee (name, surname, birth_date, phone, salary, position_id)
 		VALUES 	('Jack', 'Daniels', '01-01-1980', '12345', '100000', (SELECT id FROM position WHERE position_name = 'Director')),
@@ -45,7 +38,7 @@ public class JdbcEmployeeDao implements EmployeeDao{
 
     @Override
     @Transactional(propagation = Propagation.MANDATORY)
-    public void delEmployeeById(int id) {
+    public void delById(Integer id) {
         try (Connection connection = dataSource.getConnection();
              PreparedStatement statement = connection.prepareStatement("DELETE FROM employee WHERE id = ?")) {
             statement.setInt(1,id);
@@ -57,10 +50,10 @@ public class JdbcEmployeeDao implements EmployeeDao{
 
     @Override
     @Transactional(propagation = Propagation.MANDATORY)
-    public List<Employee> getEmployeeByName(String name) {
-        List<Employee> result = new ArrayList<>();
+    public List getByName(String name) {
+        List result = new ArrayList();
         try (Connection connection = dataSource.getConnection();
-             PreparedStatement statement = connection.prepareStatement("SELECT * FROM employee WHERE name LIKE ?")) {
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM employee WHERE name LIKE ?")) {
             statement.setString(1,name);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
@@ -75,8 +68,18 @@ public class JdbcEmployeeDao implements EmployeeDao{
 
     @Override
     @Transactional(propagation = Propagation.MANDATORY)
-    public List<Employee> getAllEmployee() {
-        return getEmployeeByName("%");
+    public List<Employee> getAll() {
+        return getByName("%");
+    }
+
+    @Override
+    public void update(Integer id, Employee entity) {
+
+    }
+
+    @Override
+    public Employee getById(Integer id) {
+        return null;
     }
 
     private Employee createEmployee(ResultSet resultSet) throws SQLException {

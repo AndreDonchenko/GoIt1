@@ -10,6 +10,17 @@ public class Dish {
     private double price;
     private double weight;
 
+    @Override
+    public String toString() {
+        return "Dish{" +
+                "id=" + id +
+                ", dishName='" + dishName + '\'' +
+                ", categoryId=" + categoryId +
+                ", price=" + price +
+                ", weight=" + weight +
+                '}';
+    }
+
     public int getId() {
         return id;
     }
