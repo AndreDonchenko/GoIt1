@@ -1,0 +1,87 @@
+package ua.goit.andre.ee6.model;
+
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+
+/**
+ * Created by Andre on 28.05.2016.
+ */
+public class Employee {
+    private int id;
+    private String name;
+    private String surname;
+    private Timestamp birthDay;
+    private String phone;
+    private double salary;
+
+    public int getPositionId() {
+        return positionId;
+    }
+
+    public void setPositionId(int positionId) {
+        this.positionId = positionId;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", birthDay=" + birthDay +
+                ", phone='" + phone + '\'' +
+                ", salary=" + salary +
+                ", positionId=" + positionId +
+                '}';
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public Timestamp getBirthDay() {
+        return birthDay;
+    }
+
+    public void setBirthDay(Timestamp birthDay) {
+        this.birthDay = birthDay;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    private int positionId;
+}
