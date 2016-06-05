@@ -39,37 +39,19 @@ public class JdbcEmployeeDao extends AbstractDao<Employee, Integer> {
     @Override
     @Transactional(propagation = Propagation.MANDATORY)
     public void delById(Integer id) {
-        try (Connection connection = dataSource.getConnection();
-             PreparedStatement statement = connection.prepareStatement("DELETE FROM employee WHERE id = ?")) {
-            statement.setInt(1,id);
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        delBySqlId("DELETE FROM employee WHERE id = ?", id);
     }
+
 
     @Override
     @Transactional(propagation = Propagation.MANDATORY)
-    public List getByName(String name) {
-        List result = new ArrayList();
-        try (Connection connection = dataSource.getConnection();
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM employee WHERE name LIKE ?")) {
-            statement.setString(1,name);
-            ResultSet resultSet = statement.executeQuery();
-            while (resultSet.next()) {
-                Employee employee = createEmployee(resultSet);
-                result.add(employee);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return result;
+    public List<Employee> getByName(String name) {
+        return getBySqlName("SELECT * FROM employee WHERE name LIKE ?", name);
     }
 
     @Override
-    @Transactional(propagation = Propagation.MANDATORY)
     public List<Employee> getAll() {
-        return getByName("%");
+        return getAllSql("SELECT * FROM employee");
     }
 
     @Override
@@ -82,7 +64,8 @@ public class JdbcEmployeeDao extends AbstractDao<Employee, Integer> {
         return null;
     }
 
-    private Employee createEmployee(ResultSet resultSet) throws SQLException {
+    @Override
+    Employee createEntity(ResultSet resultSet) throws SQLException {
         Employee employee = new Employee();
         employee.setId(resultSet.getInt("id"));
         employee.setName(resultSet.getString("name"));

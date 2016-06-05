@@ -31,4 +31,13 @@ public class MenuDetail {
     public void setDishId(int dishId) {
         this.dishId = dishId;
     }
+
+    @Override
+    public String toString() {
+        return "MenuDetail{" +
+                "id=" + id +
+                ", menuId=" + menuId +
+                ", dishId=" + dishId +
+                '}';
+    }
 }

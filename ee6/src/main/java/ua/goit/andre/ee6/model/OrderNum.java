@@ -1,6 +1,7 @@
 package ua.goit.andre.ee6.model;
 
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
+
 
 /**
  * Created by Andre on 28.05.2016.
@@ -9,7 +10,7 @@ public class OrderNum {
     private int id;
     private int employeeId;
     private int tableNum;
-    private LocalDateTime dateOrder;
+    private Timestamp dateOrder;
     private boolean open;
 
     public int getId() {
@@ -36,11 +37,11 @@ public class OrderNum {
         this.tableNum = tableNum;
     }
 
-    public LocalDateTime getDateOrder() {
+    public Timestamp getDateOrder() {
         return dateOrder;
     }
 
-    public void setDateOrder(LocalDateTime dateOrder) {
+    public void setDateOrder(Timestamp dateOrder) {
         this.dateOrder = dateOrder;
     }
 

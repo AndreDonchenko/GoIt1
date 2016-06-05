@@ -23,23 +23,40 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
+    <bean id="employeeDao" class="ua.goit.andre.ee6.dao.JdbcEmployeeDao">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
     <bean id="employeeController" class="ua.goit.andre.ee6.controllers.AbstractController">
         <property name="dao" ref="employeeDao"/>
         <property name="txManager" ref="txManager"/>
     </bean>
 
-    <bean id="employeeDao" class="ua.goit.andre.ee6.dao.JdbcEmployeeDao">
+    <bean id="dishDao" class="ua.goit.andre.ee6.dao.JdbcDishDao">
         <property name="dataSource" ref="dataSource"/>
     </bean>
-
 
     <bean id="dishController" class="ua.goit.andre.ee6.controllers.AbstractController">
         <property name="dao" ref="dishDao"/>
         <property name="txManager" ref="txManager"/>
     </bean>
 
-    <bean id="dishDao" class="ua.goit.andre.ee6.dao.JdbcDishDao">
+    <bean id="menuDao" class="ua.goit.andre.ee6.dao.JdbcMenuDao">
         <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean id="menuController" class="ua.goit.andre.ee6.controllers.AbstractController">
+        <property name="dao" ref="menuDao"/>
+        <property name="txManager" ref="txManager"/>
+    </bean>
+
+    <bean id="menuDetailDao" class="ua.goit.andre.ee6.dao.JdbcMenuDetailDao">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean id="menuDetailController" class="ua.goit.andre.ee6.controllers.AbstractM2MController">
+        <property name="dao" ref="menuDetailDao"/>
+        <property name="txManager" ref="txManager"/>
     </bean>
 
 </beans>

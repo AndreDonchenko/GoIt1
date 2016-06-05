@@ -3,44 +3,49 @@ package ua.goit.andre.ee6.controllers;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import ua.goit.andre.ee6.dao.EmployeeDao;
-import ua.goit.andre.ee6.model.Employee;
+import ua.goit.andre.ee6.dao.AbstractDao;
+import ua.goit.andre.ee6.dao.AbstractM2MDao;
 
 import java.util.List;
 
 /**
- * Created by Andre on 29.05.2016.
+ * Created by Andre on 05.06.2016.
  */
-public class EmployeeController {
-
+public class AbstractM2MController <E, K1, K2> {
     private PlatformTransactionManager txManager;
-    private EmployeeDao employeeDao;
+    private AbstractM2MDao dao;
 
     @Transactional(propagation = Propagation.REQUIRED)
-    public List<Employee> getAllEmployee() {
-        return employeeDao.getAllEmployee();
+    public List <E> getAll() {
+        return dao.getAll();
     }
 
     @Transactional(propagation = Propagation.REQUIRED)
-    public void addEmployee(Employee employee) {
-        employeeDao.addEmployee(employee);
+    public void add(E e) {
+        dao.add(e);
     }
 
     @Transactional(propagation = Propagation.REQUIRED)
-    public void delEmployeeById(int id) {
-        employeeDao.delEmployeeById(id);
+    public void delByEntity(E entity) {
+        dao.delByEntity(entity);
     }
 
     @Transactional(propagation = Propagation.REQUIRED)
-    public List<Employee> getEmployeeByName(String name) {
-        return employeeDao.getEmployeeByName(name);
+    public List<E> getByid(K1 id ) {
+        return dao.getById(id);
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    public List<E> getByValue(K2 value) {
+        return dao.getByValue(value);
     }
 
     public void setTxManager(PlatformTransactionManager txManager) {
         this.txManager = txManager;
     }
 
-    public void setEmployeeDao(EmployeeDao employeeDao) {
-        this.employeeDao = employeeDao;
+    public void setDao(AbstractM2MDao dao) {
+        this.dao = dao;
     }
+
 }

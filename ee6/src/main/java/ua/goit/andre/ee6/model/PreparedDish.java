@@ -1,6 +1,7 @@
 package ua.goit.andre.ee6.model;
 
-import java.time.LocalDateTime;
+
+import java.sql.Timestamp;
 
 /**
  * Created by Andre on 28.05.2016.
@@ -10,7 +11,7 @@ public class PreparedDish {
     private int dishId;
     private int employeeId;
     private int orderId;
-    private LocalDateTime prepareDate;
+    private Timestamp prepareDate;
 
     public int getId() {
         return id;
@@ -44,11 +45,11 @@ public class PreparedDish {
         this.orderId = orderId;
     }
 
-    public LocalDateTime getPrepareDate() {
+    public Timestamp getPrepareDate() {
         return prepareDate;
     }
 
-    public void setPrepareDate(LocalDateTime prepareDate) {
+    public void setPrepareDate(Timestamp prepareDate) {
         this.prepareDate = prepareDate;
     }
 }

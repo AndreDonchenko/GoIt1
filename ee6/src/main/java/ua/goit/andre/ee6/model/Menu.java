@@ -22,4 +22,12 @@ public class Menu {
     public void setMenuName(String menuName) {
         this.menuName = menuName;
     }
+
+    @Override
+    public String toString() {
+        return "Menu{" +
+                "id=" + id +
+                ", menuName='" + menuName + '\'' +
+                '}';
+    }
 }

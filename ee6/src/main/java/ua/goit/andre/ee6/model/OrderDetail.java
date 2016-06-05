@@ -40,4 +40,14 @@ public class OrderDetail {
     public void setQty(double qty) {
         this.qty = qty;
     }
+
+    @Override
+    public String toString() {
+        return "OrderDetail{" +
+                "id=" + id +
+                ", orderId=" + orderId +
+                ", dishId=" + dishId +
+                ", qty=" + qty +
+                '}';
+    }
 }
