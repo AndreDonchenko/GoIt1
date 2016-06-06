@@ -1,4 +1,4 @@
-package ua.goit.andre.ee6.model;
+package ua.goit.andre.ee7.model;
 
 import java.sql.Timestamp;
 

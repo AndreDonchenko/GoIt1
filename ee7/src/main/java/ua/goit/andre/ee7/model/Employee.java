@@ -13,7 +13,7 @@ public class Employee {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "name")
@@ -22,7 +22,7 @@ public class Employee {
     @Column(name = "surname")
     private String surname;
 
-    @Column(name = "birth_day")
+    @Column(name = "birth_date")
     private Timestamp birthDay;
 
     @Column(name = "phone")
@@ -30,6 +30,9 @@ public class Employee {
 
     @Column(name = "salary")
     private double salary;
+
+    @Column(name = "position_id")
+    private int positionId;
 
     public int getPositionId() {
         return positionId;
@@ -99,6 +102,4 @@ public class Employee {
     public void setId(int id) {
         this.id = id;
     }
-
-    private int positionId;
 }

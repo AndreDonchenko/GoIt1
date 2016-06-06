@@ -4,4 +4,16 @@
        xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
+        <bean id="main" class="ua.goit.andre.ee7.Main">
+                <property name="employeeController" ref="employeeController"/>
+        </bean>
+
+        <bean id="employeeController" class="ua.goit.andre.ee7.controllers.EmployeeController">
+                <property name="employeeDao" ref="employeeDao"/>
+        </bean>
+
+        <bean id="employeeDao" class="ua.goit.andre.ee7.dao.HEmployeeDao">
+                <property name="sessionFactory" ref="sessionFactory"/>
+        </bean>
+
 </beans>
