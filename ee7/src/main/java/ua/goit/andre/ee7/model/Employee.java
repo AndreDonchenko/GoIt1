@@ -12,8 +12,12 @@ import javax.persistence.*;
 public class Employee {
 
     @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(name="employee_id_seq",
+            sequenceName="employee_id_seq",
+            allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+            generator="employee_id_seq")
+    @Column(name = "id", updatable=false)
     private int id;
 
     @Column(name = "name")
@@ -31,15 +35,16 @@ public class Employee {
     @Column(name = "salary")
     private double salary;
 
-    @Column(name = "position_id")
-    private int positionId;
+    @ManyToOne
+    @JoinColumn (name = "position_id")
+    private Position position;
 
-    public int getPositionId() {
-        return positionId;
+    public Position getPositionId() {
+        return position;
     }
 
-    public void setPositionId(int positionId) {
-        this.positionId = positionId;
+    public void setPositionId(Position positionId) {
+        this.position = position;
     }
 
     public double getSalary() {
@@ -55,7 +60,7 @@ public class Employee {
                 ", birthDay=" + birthDay +
                 ", phone='" + phone + '\'' +
                 ", salary=" + salary +
-                ", positionId=" + positionId +
+                ", position=" + position +
                 '}';
     }
 

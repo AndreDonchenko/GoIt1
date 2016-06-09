@@ -1,5 +1,6 @@
 package ua.goit.andre.ee7;
 
+import org.hibernate.SessionFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import ua.goit.andre.ee7.controllers.EmployeeController;
@@ -21,6 +22,8 @@ public class Main {
 
     private void start() {
         employeeController.createEmployee();
+        System.out.println(employeeController.getAll());
+        //sessionFactory.getCurrentSession().save(employee);
     }
 
     public void setEmployeeController(EmployeeController employeeController) {

@@ -1,13 +1,34 @@
 package ua.goit.andre.ee7.model;
 
+import javax.persistence.*;
+
 /**
  * Created by Andre on 28.05.2016.
  */
+@Entity
+@Table(name = "dish")
 public class Dish {
+
+    @Id
+    @SequenceGenerator(name="employee_id_seq",
+            sequenceName="employee_id_seq",
+            allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+            generator="employee_id_seq")
+    @Column(name = "id", updatable=false)
     private int id;
+
+    @Column(name = "dish_name")
     private String dishName;
-    private int categoryId;
+
+    @ManyToOne
+    @JoinColumn(name = "dish_id")
+    private CategoryDish categoryDish;
+
+    @Column(name="price")
     private double price;
+
+    @Column(name="weight")
     private double weight;
 
     @Override
@@ -15,7 +36,7 @@ public class Dish {
         return "Dish{" +
                 "id=" + id +
                 ", dishName='" + dishName + '\'' +
-                ", categoryId=" + categoryId +
+                ", categoryDish=" + categoryDish +
                 ", price=" + price +
                 ", weight=" + weight +
                 '}';
@@ -37,12 +58,12 @@ public class Dish {
         this.dishName = dishName;
     }
 
-    public int getCategoryId() {
-        return categoryId;
+    public CategoryDish getCategoryDish() {
+        return categoryDish;
     }
 
-    public void setCategoryId(int categoryId) {
-        this.categoryId = categoryId;
+    public void setCategoryDish(CategoryDish categoryDish) {
+        this.categoryDish = categoryDish;
     }
 
     public double getPrice() {

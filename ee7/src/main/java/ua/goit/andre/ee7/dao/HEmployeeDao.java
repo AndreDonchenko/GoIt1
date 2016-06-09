@@ -1,5 +1,6 @@
 package ua.goit.andre.ee7.dao;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.transaction.annotation.Transactional;
 import ua.goit.andre.ee7.model.Employee;
@@ -25,8 +26,11 @@ public class HEmployeeDao implements EmployeeDao {
     }
 
     @Override
+    @Transactional
     public List<Employee> getAll() {
-        return null;
+        Session session = sessionFactory.getCurrentSession();
+        return session.createQuery("select e from Employee e").list();
+
     }
 
     public void setSessionFactory(SessionFactory sessionFactory) {
