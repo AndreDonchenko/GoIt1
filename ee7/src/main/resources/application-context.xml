@@ -1,19 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
 
         <bean id="main" class="ua.goit.andre.ee7.Main">
                 <property name="employeeController" ref="employeeController"/>
+                <property name="dishController" ref="dishController"/>
+                <property name="orderController" ref="orderController"/>
         </bean>
 
         <bean id="employeeController" class="ua.goit.andre.ee7.controllers.EmployeeController">
                 <property name="employeeDao" ref="employeeDao"/>
+                <property name="positionDao" ref="positionDao"/>
         </bean>
 
         <bean id="employeeDao" class="ua.goit.andre.ee7.dao.HEmployeeDao">
                 <property name="sessionFactory" ref="sessionFactory"/>
         </bean>
 
+        <bean id="positionDao" class="ua.goit.andre.ee7.dao.HPositionDao">
+                <property name="sessionFactory" ref="sessionFactory"/>
+        </bean>
+
+        <bean id="dishDao" class="ua.goit.andre.ee7.dao.HDishDao">
+                <property name="sessionFactory" ref="sessionFactory"/>
+        </bean>
+
+        <bean id="dishController" class="ua.goit.andre.ee7.controllers.DishController">
+                <property name="dishDao" ref="dishDao"/>
+        </bean>
+
+        <bean id="orderDao" class="ua.goit.andre.ee7.dao.HOrderDao">
+                <property name="sessionFactory" ref="sessionFactory"/>
+        </bean>
+
+        <bean id="orderController" class="ua.goit.andre.ee7.controllers.OrderController">
+                <property name="employeeDao" ref="employeeDao"/>
+                <property name="dishDao" ref="dishDao"/>
+                <property name="orderDao" ref="orderDao"/>
+        </bean>
 </beans>

@@ -10,11 +10,11 @@ import javax.persistence.*;
 public class Dish {
 
     @Id
-    @SequenceGenerator(name="employee_id_seq",
-            sequenceName="employee_id_seq",
+    @SequenceGenerator(name="dish_id_seq",
+            sequenceName="dish_id_seq",
             allocationSize=1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE,
-            generator="employee_id_seq")
+            generator="dish_id_seq")
     @Column(name = "id", updatable=false)
     private int id;
 
@@ -22,7 +22,7 @@ public class Dish {
     private String dishName;
 
     @ManyToOne
-    @JoinColumn(name = "dish_id")
+    @JoinColumn(name = "category_id")
     private CategoryDish categoryDish;
 
     @Column(name="price")

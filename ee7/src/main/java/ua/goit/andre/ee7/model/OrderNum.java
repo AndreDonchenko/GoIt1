@@ -1,16 +1,65 @@
 package ua.goit.andre.ee7.model;
 
+import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.List;
 
 
 /**
  * Created by Andre on 28.05.2016.
  */
+@Entity
+@Table(name = "order_num")
 public class OrderNum {
+
+    @Id
+    @SequenceGenerator(name="order_detail_id_seq",
+            sequenceName="order_detail_id_seq",
+            allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+            generator="order_detail_id_seq")
+    @Column(name = "id", updatable=false)
     private int id;
-    private int employeeId;
+
+    @ManyToOne
+    @JoinColumn(name="employee_id")
+    private Employee employee;
+
+    @ManyToMany()
+    @JoinTable (
+            name = "order_detail",
+            joinColumns = @JoinColumn(name="order_id"),
+            inverseJoinColumns = @JoinColumn(name = "dish_id")
+    )
+    private List<Dish> dishes;
+
+    @Override
+    public String toString() {
+        return "OrderNum{" +
+                "id=" + id +
+                ", employee=" + employee +
+                //", dishes=" + dishes +
+                ", tableNum=" + tableNum +
+                ", dateOrder=" + dateOrder +
+                ", open=" + open +
+                '}';
+    }
+
+    public List<Dish> getDishes() {
+        return dishes;
+    }
+
+    public void setDishes(List<Dish> dishes) {
+        this.dishes = dishes;
+    }
+
+    @Column(name = "table_num")
     private int tableNum;
+
+    @Column(name = "date_order")
     private Timestamp dateOrder;
+
+    @Column(name="open")
     private boolean open;
 
     public int getId() {
@@ -21,12 +70,12 @@ public class OrderNum {
         this.id = id;
     }
 
-    public int getEmployeeId() {
-        return employeeId;
+    public Employee getEmployee() {
+        return employee;
     }
 
-    public void setEmployeeId(int employeeId) {
-        this.employeeId = employeeId;
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 
     public int getTableNum() {

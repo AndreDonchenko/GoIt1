@@ -39,11 +39,11 @@ public class Employee {
     @JoinColumn (name = "position_id")
     private Position position;
 
-    public Position getPositionId() {
+    public Position getPosition() {
         return position;
     }
 
-    public void setPositionId(Position positionId) {
+    public void setPosition(Position position) {
         this.position = position;
     }
 

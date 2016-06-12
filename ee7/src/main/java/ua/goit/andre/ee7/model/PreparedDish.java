@@ -1,16 +1,38 @@
 package ua.goit.andre.ee7.model;
 
 
+import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
  * Created by Andre on 28.05.2016.
  */
+@Entity
+@Table(name = "prepared_dish")
 public class PreparedDish {
+
+    @Id
+    @SequenceGenerator(name="prepared_dish_id_seq",
+            sequenceName="prepared_dish_id_seq",
+            allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+            generator="prepared_dish_id_seq")
+    @Column(name = "id", updatable=false)
     private int id;
-    private int dishId;
-    private int employeeId;
-    private int orderId;
+
+    @ManyToOne
+    @JoinColumn(name = "dish_id")
+    private Dish dish;
+
+    @ManyToOne
+    @JoinColumn(name = "employee_id")
+    private Employee employee;
+
+    @ManyToOne
+    @JoinColumn(name = "order_id")
+    private OrderNum order;
+
+    @Column(name = "prepare_date")
     private Timestamp prepareDate;
 
     public int getId() {
@@ -21,28 +43,20 @@ public class PreparedDish {
         this.id = id;
     }
 
-    public int getDishId() {
-        return dishId;
+    public Dish getDish() {
+        return dish;
     }
 
-    public void setDishId(int dishId) {
-        this.dishId = dishId;
+    public void setDish(Dish dish) {
+        this.dish = dish;
     }
 
-    public int getEmployeeId() {
-        return employeeId;
+    public Employee getEmployee() {
+        return employee;
     }
 
-    public void setEmployeeId(int employeeId) {
-        this.employeeId = employeeId;
-    }
-
-    public int getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(int orderId) {
-        this.orderId = orderId;
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 
     public Timestamp getPrepareDate() {

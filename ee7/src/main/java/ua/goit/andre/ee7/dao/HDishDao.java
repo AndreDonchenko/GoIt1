@@ -4,6 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.transaction.annotation.Transactional;
+import ua.goit.andre.ee7.model.Dish;
 import ua.goit.andre.ee7.model.Employee;
 
 import java.util.List;
@@ -11,29 +12,29 @@ import java.util.List;
 /**
  * Created by Andre on 06.06.2016.
  */
-public class HEmployeeDao extends Dao<Employee> {
+public class HDishDao extends Dao<Dish> {
 
     @Override
     @Transactional
-    public Employee getById(Integer id) {
+    public Dish getById(Integer id) {
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("select e from Employee e where e.id = :id");
+        Query query = session.createQuery("select e from Dish e where e.id = :id");
         query.setParameter("id",id);
-        return (Employee) query.uniqueResult();
+        return (Dish) query.uniqueResult();
     }
 
     @Override
     @Transactional
-    public List<Employee> getByName(String name) {
+    public List<Dish> getByName(String name) {
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("select e from Employee e where e.name like :name");
+        Query query = session.createQuery("select e from Dish e where e.dishName like :name");
         query.setParameter("name", name);
         return query.list();
     }
 
     @Override
     @Transactional
-    public List<Employee> getAll() {
-        return sessionFactory.getCurrentSession().createQuery("select e from Employee e").list();
+    public List<Dish> getAll() {
+        return sessionFactory.getCurrentSession().createQuery("select e from Dish e").list();
     }
 }

@@ -1,39 +1,44 @@
 package ua.goit.andre.ee7.dao;
 
+import javafx.geometry.Pos;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.transaction.annotation.Transactional;
+import ua.goit.andre.ee7.model.Dish;
 import ua.goit.andre.ee7.model.Employee;
+import ua.goit.andre.ee7.model.Position;
 
 import java.util.List;
 
 /**
  * Created by Andre on 06.06.2016.
  */
-public class HEmployeeDao extends Dao<Employee> {
+public class HPositionDao extends Dao<Position> {
 
     @Override
     @Transactional
-    public Employee getById(Integer id) {
+    public Position getById(Integer id) {
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("select e from Employee e where e.id = :id");
+        Query query = session.createQuery("select e from Position e where e.id = :id");
         query.setParameter("id",id);
-        return (Employee) query.uniqueResult();
+        return (Position) query.uniqueResult();
     }
 
     @Override
     @Transactional
-    public List<Employee> getByName(String name) {
+    public List<Position> getByName(String name) {
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("select e from Employee e where e.name like :name");
+        Query query = session.createQuery("select e from Position e where e.position_name like :name");
         query.setParameter("name", name);
         return query.list();
     }
 
+
     @Override
     @Transactional
-    public List<Employee> getAll() {
-        return sessionFactory.getCurrentSession().createQuery("select e from Employee e").list();
+    public List<Position> getAll() {
+        return sessionFactory.getCurrentSession().createQuery("select e from Position e").list();
     }
+
 }
