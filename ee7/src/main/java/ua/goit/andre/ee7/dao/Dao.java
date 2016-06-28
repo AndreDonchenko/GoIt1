@@ -22,7 +22,9 @@ public abstract class Dao <E>{
 
     public abstract E getById(Integer id);
 
-    public abstract List<E> getByName(String name);
+    public List<E> getByName(String name) {
+        return null;
+    };
 
     public abstract List<E> getAll();
 

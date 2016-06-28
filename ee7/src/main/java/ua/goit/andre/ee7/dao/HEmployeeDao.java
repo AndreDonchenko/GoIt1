@@ -16,6 +16,7 @@ public class HEmployeeDao extends Dao<Employee> {
     @Override
     @Transactional
     public Employee getById(Integer id) {
+        //return sessionFactory.getCurrentSession().load(Employee.class, id);
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("select e from Employee e where e.id = :id");
         query.setParameter("id",id);

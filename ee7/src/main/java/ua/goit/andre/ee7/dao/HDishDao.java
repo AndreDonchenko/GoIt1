@@ -17,10 +17,7 @@ public class HDishDao extends Dao<Dish> {
     @Override
     @Transactional
     public Dish getById(Integer id) {
-        Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("select e from Dish e where e.id = :id");
-        query.setParameter("id",id);
-        return (Dish) query.uniqueResult();
+        return sessionFactory.getCurrentSession().load(Dish.class, id);
     }
 
     @Override

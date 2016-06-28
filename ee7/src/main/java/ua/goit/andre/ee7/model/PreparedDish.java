@@ -59,11 +59,29 @@ public class PreparedDish {
         this.employee = employee;
     }
 
+    public OrderNum getOrder() {
+        return order;
+    }
+
+    public void setOrder(OrderNum order) {
+        this.order = order;
+    }
+
     public Timestamp getPrepareDate() {
         return prepareDate;
     }
 
     public void setPrepareDate(Timestamp prepareDate) {
         this.prepareDate = prepareDate;
+    }
+
+    @Override
+    public String toString() {
+        return "PreparedDish{" +
+                "dish=" + dish +
+                ", Cooker=" + employee +
+                ", order=" + order +
+                ", prepareDate=" + prepareDate +
+                '}';
     }
 }

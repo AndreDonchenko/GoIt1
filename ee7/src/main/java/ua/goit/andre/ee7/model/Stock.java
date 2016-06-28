@@ -35,27 +35,4 @@ public class Stock implements Serializable {
         this.qty = qty;
     }
 
-    /*
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Stock stock = (Stock) o;
-
-        if (Double.compare(stock.qty, qty) != 0) return false;
-        return ingedient != null ? ingedient.equals(stock.ingedient) : stock.ingedient == null;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result;
-        long temp;
-        result = ingedient != null ? ingedient.hashCode() : 0;
-        temp = Double.doubleToLongBits(qty);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        return result;
-    }
-    */
 }

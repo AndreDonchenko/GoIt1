@@ -1,6 +1,8 @@
 package ua.goit.andre.ee7.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Andre on 28.05.2016.
@@ -21,6 +23,22 @@ public class Menu {
 
     @Column (name = "menu_name")
     private String menuName;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name="menu_detail",
+            joinColumns = @JoinColumn(name = "menu_id"),
+            inverseJoinColumns = @JoinColumn(name = "dish_id")
+    )
+    private List<Dish> dishes;
+
+    public List<Dish> getDishes() {
+        return dishes;
+    }
+
+    public void setDishes(List<Dish> dishes) {
+        this.dishes = dishes;
+    }
 
     public int getId() {
         return id;
@@ -43,6 +61,7 @@ public class Menu {
         return "Menu{" +
                 "id=" + id +
                 ", menuName='" + menuName + '\'' +
+                ", dishes=" + dishes +
                 '}';
     }
 }

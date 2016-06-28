@@ -1,5 +1,8 @@
 package ua.goit.andre.ee7.model;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import java.sql.Timestamp;
 import javax.persistence.*;
 
@@ -37,6 +40,7 @@ public class Employee {
 
     @ManyToOne
     @JoinColumn (name = "position_id")
+    @Fetch(FetchMode.JOIN)
     private Position position;
 
     public Position getPosition() {
@@ -54,13 +58,8 @@ public class Employee {
     @Override
     public String toString() {
         return "Employee{" +
-                "id=" + id +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
-                ", birthDay=" + birthDay +
-                ", phone='" + phone + '\'' +
-                ", salary=" + salary +
-                ", position=" + position +
                 '}';
     }
 

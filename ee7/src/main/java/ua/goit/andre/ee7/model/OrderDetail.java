@@ -19,11 +19,13 @@ public class OrderDetail {
     @Column(name = "id", updatable=false)
     private int id;
 
-    @Column(name = "order_id")
-    private int orderId;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "order_id")
+    private OrderNum orderNum;
 
-    @Column(name = "dish_id")
-    private int dishId;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "dish_id")
+    private Dish dish;
 
     @Column(name="qty")
     private double qty;
@@ -36,20 +38,20 @@ public class OrderDetail {
         this.id = id;
     }
 
-    public int getOrderId() {
-        return orderId;
+    public OrderNum getOrderNum() {
+        return orderNum;
     }
 
-    public void setOrderId(int orderId) {
-        this.orderId = orderId;
+    public void setOrderNum(OrderNum orderNum) {
+        this.orderNum = orderNum;
     }
 
-    public int getDishId() {
-        return dishId;
+    public Dish getDish() {
+        return dish;
     }
 
-    public void setDishId(int dishId) {
-        this.dishId = dishId;
+    public void setDish(Dish dish) {
+        this.dish = dish;
     }
 
     public double getQty() {
@@ -63,9 +65,7 @@ public class OrderDetail {
     @Override
     public String toString() {
         return "OrderDetail{" +
-                "id=" + id +
-                ", orderId=" + orderId +
-                ", dishId=" + dishId +
+                "dish=" + dish +
                 ", qty=" + qty +
                 '}';
     }

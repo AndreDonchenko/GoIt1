@@ -1,6 +1,13 @@
 package ua.goit.andre.ee7.model;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Andre on 28.05.2016.
@@ -23,6 +30,7 @@ public class Dish {
 
     @ManyToOne
     @JoinColumn(name = "category_id")
+    @Fetch(FetchMode.JOIN)
     private CategoryDish categoryDish;
 
     @Column(name="price")
@@ -31,14 +39,14 @@ public class Dish {
     @Column(name="weight")
     private double weight;
 
+    @OneToMany(mappedBy = "dish")
+    private List<OrderDetail> orderDetails = new ArrayList<>();
+
+
     @Override
     public String toString() {
         return "Dish{" +
-                "id=" + id +
                 ", dishName='" + dishName + '\'' +
-                ", categoryDish=" + categoryDish +
-                ", price=" + price +
-                ", weight=" + weight +
                 '}';
     }
 
@@ -48,6 +56,14 @@ public class Dish {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public List<OrderDetail> getOrderDetails() {
+        return orderDetails;
+    }
+
+    public void setOrderDetails(List<OrderDetail> orderDetails) {
+        this.orderDetails = orderDetails;
     }
 
     public String getDishName() {

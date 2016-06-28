@@ -2,7 +2,10 @@ package ua.goit.andre.ee7.model;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 /**
@@ -25,33 +28,9 @@ public class OrderNum {
     @JoinColumn(name="employee_id")
     private Employee employee;
 
-    @ManyToMany()
-    @JoinTable (
-            name = "order_detail",
-            joinColumns = @JoinColumn(name="order_id"),
-            inverseJoinColumns = @JoinColumn(name = "dish_id")
-    )
-    private List<Dish> dishes;
-
-    @Override
-    public String toString() {
-        return "OrderNum{" +
-                "id=" + id +
-                ", employee=" + employee +
-                //", dishes=" + dishes +
-                ", tableNum=" + tableNum +
-                ", dateOrder=" + dateOrder +
-                ", open=" + open +
-                '}';
-    }
-
-    public List<Dish> getDishes() {
-        return dishes;
-    }
-
-    public void setDishes(List<Dish> dishes) {
-        this.dishes = dishes;
-    }
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "orderNum")
+    //@JoinColumn(name = "order_id")
+    private List<OrderDetail> orderDetails = new ArrayList<>();
 
     @Column(name = "table_num")
     private int tableNum;
@@ -78,6 +57,14 @@ public class OrderNum {
         this.employee = employee;
     }
 
+    public List<OrderDetail> getOrderDetails() {
+        return orderDetails;
+    }
+
+    public void setOrderDetails(List<OrderDetail> orderDetails) {
+        this.orderDetails = orderDetails;
+    }
+
     public int getTableNum() {
         return tableNum;
     }
@@ -100,5 +87,17 @@ public class OrderNum {
 
     public void setOpen(boolean open) {
         this.open = open;
+    }
+
+    @Override
+    public String toString() {
+        return "OrderNum{" +
+                "id=" + id +
+                ", employee=" + employee +
+                ", orderDetails=" + orderDetails +
+                ", tableNum=" + tableNum +
+                ", dateOrder=" + dateOrder +
+                ", open=" + open +
+                '}';
     }
 }
