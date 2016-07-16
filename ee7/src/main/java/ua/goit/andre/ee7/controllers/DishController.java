@@ -10,4 +10,5 @@ import java.util.List;
  * Created by Andre on 06.06.2016.
  */
 public class DishController extends Controller<Dish> {
+
 }

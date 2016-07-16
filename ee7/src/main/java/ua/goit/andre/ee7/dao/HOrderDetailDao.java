@@ -28,4 +28,10 @@ public class HOrderDetailDao extends Dao<OrderDetail> {
         return sessionFactory.getCurrentSession().createQuery("select e from OrderDetail e").list();
     }
 
+    @Override
+    @Transactional
+    public void delAll() {
+        sessionFactory.getCurrentSession().createQuery("delete from OrderDetail").executeUpdate();
+    }
+
 }

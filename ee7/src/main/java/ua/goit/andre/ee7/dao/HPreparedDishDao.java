@@ -24,4 +24,10 @@ public class HPreparedDishDao extends Dao<PreparedDish> {
     public List<PreparedDish> getAll() {
         return sessionFactory.getCurrentSession().createQuery("select e from PreparedDish e").list();
     }
+
+    @Override
+    @Transactional
+    public void delAll() {
+        sessionFactory.getCurrentSession().createQuery("delete from PreparedDish").executeUpdate();
+    }
 }

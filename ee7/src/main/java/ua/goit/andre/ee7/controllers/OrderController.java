@@ -23,7 +23,6 @@ public class OrderController extends Controller<OrderNum> {
     private HEmployeeDao employeeDao;
     private HDishDao dishDao;
     private HOrderDetailDao orderDetailDao;
-    private HOrderDao orderDao;
 
     @Transactional
     public OrderNum createOrder (String waiterName, int tableNum) {
@@ -56,6 +55,11 @@ public class OrderController extends Controller<OrderNum> {
     public List<OrderNum> getOpenOrders() {
         HOrderDao orderDao = (HOrderDao) dao;
         return orderDao.getOpenOrders();
+    }
+
+    public void delAll() {
+        orderDetailDao.delAll();
+        super.delAll();
     }
 
     public void setOrderDetailDao(HOrderDetailDao orderDetailDao) {

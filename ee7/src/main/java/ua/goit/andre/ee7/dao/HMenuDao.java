@@ -35,4 +35,10 @@ public class HMenuDao extends Dao<Menu> {
         return sessionFactory.getCurrentSession().createQuery("select m from Menu m").list();
     }
 
+    @Override
+    @Transactional
+    public void delAll() {
+        sessionFactory.getCurrentSession().createQuery("delete from Menu").executeUpdate();
+    }
+
 }

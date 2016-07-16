@@ -47,7 +47,16 @@ public class Main {
     public static void main(String[] args) {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("application-context.xml", "hibernate-context.xml");
         Main main = applicationContext.getBean(Main.class);
-        main.start();
+        main.delAll();
+        //main.start();
+    }
+
+    private void delAll() {
+        preparedDishController.delAll();
+        orderController.delAll();
+        menuController.delAll();
+        dishController.delAll();
+        employeeController.delAll();
     }
 
     private void start() {

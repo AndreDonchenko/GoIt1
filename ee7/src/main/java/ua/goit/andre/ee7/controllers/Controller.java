@@ -34,4 +34,8 @@ public abstract class Controller <E> {
         return (List <E>) dao.getByName(name);
     }
 
+    @Transactional
+    public void delAll() {
+        dao.delAll();
+    }
 }

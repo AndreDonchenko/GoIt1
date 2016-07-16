@@ -34,4 +34,11 @@ public class HDishDao extends Dao<Dish> {
     public List<Dish> getAll() {
         return sessionFactory.getCurrentSession().createQuery("select e from Dish e").list();
     }
+
+    @Override
+    @Transactional
+    public void delAll() {
+        sessionFactory.getCurrentSession().createQuery("delete from Dish").executeUpdate();
+    }
+
 }

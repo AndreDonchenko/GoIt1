@@ -29,7 +29,15 @@ public class EmployeeController extends Controller <Employee>{
         create(employee);
     }
 
+
+    public void delAll() {
+        super.delAll();
+        positionDao.delAll();
+    }
+
+
     public void setPositionDao(Dao positionDao) {
         this.positionDao = positionDao;
     }
+
 }

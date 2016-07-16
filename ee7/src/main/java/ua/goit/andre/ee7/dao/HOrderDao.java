@@ -34,4 +34,11 @@ public class HOrderDao extends Dao<OrderNum> {
         return sessionFactory.getCurrentSession().createQuery("select e from OrderNum e where e.open=true").list();
     }
 
+    @Override
+    @Transactional
+    public void delAll() {
+        sessionFactory.getCurrentSession().createQuery("delete from OrderNum").executeUpdate();
+    }
+
+
 }

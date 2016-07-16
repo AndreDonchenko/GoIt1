@@ -41,4 +41,9 @@ public class HPositionDao extends Dao<Position> {
         return sessionFactory.getCurrentSession().createQuery("select e from Position e").list();
     }
 
+    @Override
+    @Transactional
+    public void delAll() {
+        sessionFactory.getCurrentSession().createQuery("delete from Position").executeUpdate();
+    }
 }

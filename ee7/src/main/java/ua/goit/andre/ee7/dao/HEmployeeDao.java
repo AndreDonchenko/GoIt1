@@ -37,4 +37,10 @@ public class HEmployeeDao extends Dao<Employee> {
     public List<Employee> getAll() {
         return sessionFactory.getCurrentSession().createQuery("select e from Employee e").list();
     }
+
+    @Override
+    @Transactional
+    public void delAll() {
+        sessionFactory.getCurrentSession().createQuery("delete from Employee").executeUpdate();
+    }
 }

@@ -31,4 +31,6 @@ public abstract class Dao <E>{
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
+
+    public abstract void delAll();
 }
