@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"
+
+       default-autowire="byName">
+
+    <bean id="employeeDao" class="ua.goit.andre.ee10.dao.HEmployeeDao"/>
+    <bean id="positionDao" class="ua.goit.andre.ee10.dao.HPositionDao"/>
+    <bean id="dishDao" class="ua.goit.andre.ee10.dao.HDishDao"/>
+    <bean id="orderDao" class="ua.goit.andre.ee10.dao.HOrderDao"/>
+    <bean id="orderDetailDao" class="ua.goit.andre.ee10.dao.HOrderDetailDao"/>
+    <bean id="menuDao" class="ua.goit.andre.ee10.dao.HMenuDao"/>
+    <bean id="categoryDishDao" class="ua.goit.andre.ee10.dao.HCategoryDishDao"/>
+
+    <bean id="employeeController" class="ua.goit.andre.ee10.web.EmployeeController"/>
+    <bean id="menuController" class="ua.goit.andre.ee10.web.MenuController"/>
+    <bean id="orderController" class="ua.goit.andre.ee10.web.OrderController"/>
+
+    <bean id="employeeService" class="ua.goit.andre.ee10.service.EmployeeService"/>
+    <bean id="orderService" class="ua.goit.andre.ee10.service.OrderService"/>
+    <bean id="menuService" class="ua.goit.andre.ee10.service.MenuService"/>
+
+</beans>
